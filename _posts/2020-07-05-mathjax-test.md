@@ -1,3 +1,7 @@
+---
+layout: post
+mathjax: true
+---
 \begin{aligned}
 \sqrt{37} & = \sqrt{\frac{73^2-1}{12^2}} \\
  & = \sqrt{\frac{73^2}{12^2}\cdot\frac{73^2-1}{73^2}} \\ 
