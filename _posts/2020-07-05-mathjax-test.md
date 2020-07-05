@@ -4,7 +4,7 @@ title:      "Hello 205"
 subtitle:   " \"Hello World, Hello Blog\""
 date:       2015-01-29 12:00:00
 author:     "Hux"
-header-img: "img/post-bg-2015.jpg"
+header-img: "https://img.rruu.net/image/5f01949bce69d"
 catalog: true
 mathjax: true
 ---
