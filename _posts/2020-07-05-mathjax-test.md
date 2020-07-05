@@ -4,7 +4,7 @@ title:      "Hello 205"
 subtitle:   " \"Hello World, Hello Blog\""
 date:       20157-01-29 12:00:00
 author:     "Hux"
-header-img: "https://yanxuan.nosdn.127.net/f7bdeee8779c16f382e5fb87c87293f5.jpg"
+header-img: "img/u=701297475,1432338976&fm=26&gp=0.jpg"
 catalog: true
 mathjax: true
 ---
