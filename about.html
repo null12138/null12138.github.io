@@ -1,0 +1,12 @@
+---
+layout: page
+title: "关于我"
+description: "你是我的梦想"
+header-img: "img/yousa6"
+multilingual: true
+---
+<!-- Chinese Version -->
+<div class="zh post-container">
+    {% capture about_zh %}{% include about/zh.md %}{% endcapture %}
+    {{ about_zh | markdownify }}
+</div>
