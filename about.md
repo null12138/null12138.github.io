@@ -8,6 +8,6 @@ multilingual: true
 
 <!-- Chinese Version -->
 <div class="zh post-container">
-    {% capture about_zh %}{% include about/en.md %}{% endcapture %}
+    {% capture about_zh %}{% include others/about.md %}{% endcapture %}
     {{ about_zh | markdownify }}
 </div>
