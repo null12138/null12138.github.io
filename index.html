@@ -17,7 +17,9 @@ description: "弱小和无知不是生存的障碍 傲慢才是"
         {% endif %}
         <div class="post-content-preview">
             {% if post.z == 't' %}
-                {{ post.content | strip_html | truncate:100 }}
+                {post.zy}
+            {% else %}
+                {{ post.content | strip_html | truncate:80 }}
             {% endif %}
         </div>
     </a>
