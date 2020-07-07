@@ -27,7 +27,7 @@ description: "弱小和无知不是生存的障碍 傲慢才是"
         Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
     </p>
     <p class="post-ryc">
-        ryc {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
+        {% for tag in post.tags %} {% endfor %}
     </p>
 </div>
 <hr>
