@@ -16,18 +16,13 @@ description: "弱小和无知不是生存的障碍 傲慢才是"
         </h3>
         {% endif %}
         <div class="post-content-preview">
-            {% if post.lang == 'en' %}
-                {{ post.content | strip_html | truncate:300 }}
-            {% else %}
-                {{ post.content | strip_html | truncate:200 }}
+            {% if post.z == 't' %}
+                {{ post.content | strip_html | truncate:100 }}
             {% endif %}
         </div>
     </a>
     <p class="post-meta">
         Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
-    </p>
-    <p class="post-meta">
-        {% for tag in post.tags %} {% endfor %}
     </p>
 </div>
 <hr>
