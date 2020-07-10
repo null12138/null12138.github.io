@@ -1,0 +1,13 @@
+---
+layout:     post
+title:      结业式
+subtitle: 
+date:       2020-07-10 
+author:    任雨晨
+header-img: img/yousa6.jpg
+mathjax: true
+tags: []
+---
+<video id="video" controls="" preload="none" poster="http://ryc2019.tk/img/yousa3.jpg">
+      <source id="mp4" src="http://rycbox.herokuapp.com/2020-07%20%E7%BB%93%E4%B8%9A%E5%BC%8F.mp4" type="video/mp4">
+</video>
