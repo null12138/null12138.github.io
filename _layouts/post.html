@@ -171,21 +171,5 @@ layout: default
     }
 </style>
 {% endif %}
-<!-- ························Gitalk评论系统·························· -->
-  <div id="gitalk-container"></div>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-  <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script> 
-  <script>
-    var gitalk  = new Gitalk ({
-        id: location.pathname,   // Ensure uniqueness and length less than 50
-        clientID: '611e38882b9a1b330a25',
-        clientSecret: '548c4dd30c64ef475577d4f9257c626987af9f85',
-        repo: 'null12138.github.io',
-        owner: 'null12138',
-        admin: 'nulp12138',
-        distractionFreeMode: false  // Facebook-like distraction free mode
-    })
-    gitalk.render('gitalk-container')
-  </script>
 
 
