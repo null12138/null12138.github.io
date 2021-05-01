@@ -72,7 +72,7 @@ netease_comment: false
 
 # Google Analytics
 ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
-ga_domain: ryc2019.tk
+ga_domain: ryc.pp.ua
 
 
 
@@ -103,7 +103,7 @@ page-mathjax: true
 # Friends
 friends: [
     {
-        title: "yuchen ren",
+        title: "Yuchen Ren",
         href: "https://null12138.github.io"
     }
 ]
