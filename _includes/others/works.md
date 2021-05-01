@@ -20,7 +20,7 @@
 
 可以公开发表的第一篇文章，对我来说有一些纪念性的重大意义。
 
-[/doc/works/hun.html](魂)
+[魂](https://ryc.pp.ua/doc/works/hun.html)
 
 
 
