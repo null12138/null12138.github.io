@@ -4,7 +4,7 @@ SEOTitle: 任雨晨的博客 | Ryc Blog
 header-img: pic/header.jpg
 email: ryc.yzx@gmail.com
 description: "任雨晨 | 探索"
-keyword: "博客, 个人网站, 互联网, Web, JavaScript, 前端, 设计"
+keyword: "博客, 个人网站, 互联网, Web,单片机, 前端, 设计"
 url: "https://ryc.pp.ua"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
