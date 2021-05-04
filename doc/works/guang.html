@@ -1,0 +1,803 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=PT+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,cyrillic,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-fences-math .MathJax_SVG_Display, .md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: visible; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-require-zoom-fix foreignobject { font-size: var(--mermaid-font-zoom); }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-math .MathJax_SVG_Display { margin-top: 8px; cursor: default; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+
+
+/* meyer reset -- http://meyerweb.com/eric/tools/css/reset/ , v2.0 | 20110126 | License: none (public domain) */
+
+@include-when-export url(https://fonts.loli.net/css?family=PT+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,cyrillic,latin-ext);
+
+/* =========== */
+
+/* pt-serif-regular - latin */
+/* pt-serif-italic - latin */
+/* pt-serif-700 - latin */
+/* pt-serif-700italic - latin */
+:root {
+	--active-file-bg-color: #dadada;
+	--active-file-bg-color: rgba(32, 43, 51, 0.63);
+	--active-file-text-color: white;
+	--bg-color: #f3f2ee;
+	--text-color: #1f0909;
+	--control-text-color: #444;
+	--rawblock-edit-panel-bd: #e5e5e5;
+
+	--select-text-bg-color: rgba(32, 43, 51, 0.63);
+  --select-text-font-color: white;
+}
+
+pre {
+	--select-text-bg-color: #36284e;
+	--select-text-font-color: #fff;
+}
+
+html {
+	font-size: 16px;
+}
+
+html, body {
+	background-color: #f3f2ee;
+	font-family: "PT Serif", 'Times New Roman', Times, serif;
+	color: #1f0909;
+	line-height: 1.5em;
+}
+
+/*#write {
+	overflow-x: auto;
+    max-width: initial;
+	padding-left: calc(50% - 17em);
+    padding-right: calc(50% - 17em);
+}
+
+@media (max-width: 36em) {
+ 	#write {
+ 		padding-left: 1em;
+    	padding-right: 1em;
+ 	}
+}*/
+
+#write {
+	max-width: 40em;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+			max-width: 914px;
+	}
+}
+
+ol li {
+	list-style-type: decimal;
+	list-style-position: outside;
+}
+ul li {
+	list-style-type: disc;
+	list-style-position: outside;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* styles */
+
+/* ====== */
+
+/* headings */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: bold;
+}
+h1 {
+	font-size: 1.875em;
+	/*30 / 16*/
+	line-height: 1.6em;
+	/* 48 / 30*/
+	margin-top: 2em;
+}
+h2,
+h3 {
+	font-size: 1.3125em;
+	/*21 / 16*/
+	line-height: 1.15;
+	/*24 / 21*/
+	margin-top: 2.285714em;
+	/*48 / 21*/
+	margin-bottom: 1.15em;
+	/*24 / 21*/
+}
+h3 {
+	font-weight: normal;
+}
+h4 {
+	font-size: 1.125em;
+	/*18 / 16*/
+	margin-top: 2.67em;
+	/*48 / 18*/
+}
+h5,
+h6 {
+	font-size: 1em;
+	/*16*/
+}
+h1 {
+	border-bottom: 1px solid;
+	margin-bottom: 1.875em;
+	padding-bottom: 0.8125em;
+}
+/* links */
+
+a {
+	text-decoration: none;
+	color: #065588;
+}
+a:hover,
+a:active {
+	text-decoration: underline;
+}
+/* block spacing */
+
+p,
+blockquote,
+.md-fences {
+	margin-bottom: 1.5em;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-bottom: 1.5em;
+}
+/* blockquote */
+
+blockquote {
+	font-style: italic;
+	border-left: 5px solid;
+	margin-left: 2em;
+	padding-left: 1em;
+}
+/* lists */
+
+ul,
+ol {
+	margin: 0 0 1.5em 1.5em;
+}
+/* tables */
+.md-meta,.md-before, .md-after {
+	color:#999;
+}
+
+table {
+	margin-bottom: 1.5em;
+	/*24 / 16*/
+	font-size: 1em;
+	/* width: 100%; */
+}
+thead th,
+tfoot th {
+	padding: .25em .25em .25em .4em;
+	text-transform: uppercase;
+}
+th {
+	text-align: left;
+}
+td {
+	vertical-align: top;
+	padding: .25em .25em .25em .4em;
+}
+
+code,
+.md-fences {
+	background-color: #dadada;
+}
+
+code {
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+.md-fences {
+	margin-left: 2em;
+	margin-bottom: 3em;
+	padding-left: 1ch;
+	padding-right: 1ch;
+}
+
+pre,
+code,
+tt {
+	font-size: .875em;
+	line-height: 1.714285em;
+}
+/* some fixes */
+
+h1 {
+	line-height: 1.3em;
+	font-weight: normal;
+	margin-bottom: 0.5em;
+}
+
+p + ul,
+p + ol{
+	margin-top: .5em;
+}
+
+h3 + ul,
+h4 + ul,
+h5 + ul,
+h6 + ul,
+h3 + ol,
+h4 + ol,
+h5 + ol,
+h6 + ol {
+	margin-top: .5em;
+}
+
+li > ul,
+li > ol {
+	margin-top: inherit;
+	margin-bottom: 0;
+}
+
+li ol>li {
+	list-style-type: lower-alpha;
+}
+
+li li ol>li{
+	list-style-type: lower-roman;
+}
+
+h2,
+h3 {
+	margin-bottom: .75em;
+}
+hr {
+	border-top: none;
+	border-right: none;
+	border-bottom: 1px solid;
+	border-left: none;
+}
+h1 {
+	border-color: #c5c5c5;
+}
+blockquote {
+	border-color: #bababa;
+	color: #656565;
+}
+
+blockquote ul,
+blockquote ol {
+	margin-left:0;
+}
+
+.ty-table-edit {
+	background-color: transparent;
+}
+thead {
+	background-color: #dadada;
+}
+tr:nth-child(even) {
+	background: #e8e7e7;
+}
+hr {
+	border-color: #c5c5c5;
+}
+.task-list{
+	padding-left: 1rem;
+}
+
+.md-task-list-item {
+	padding-left: 1.5rem;
+	list-style-type: none;
+}
+
+.md-task-list-item > input:before {
+	content: '\221A';
+	display: inline-block;
+	width: 1.25rem;
+  	height: 1.6rem;
+	vertical-align: middle;
+	text-align: center;
+	color: #ddd;
+	background-color: #F3F2EE;
+}
+
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before{
+	color: inherit;
+}
+
+#write pre.md-meta-block {
+	min-height: 1.875rem;
+	color: #555;
+	border: 0px;
+	background: transparent;
+	margin-top: -4px;
+	margin-left: 1em;
+	margin-top: 1em;
+}
+
+.md-image>.md-meta {
+	color: #9B5146;
+}
+
+.md-image>.md-meta{
+	font-family: Menlo, 'Ubuntu Mono', Consolas, 'Courier New', 'Microsoft Yahei', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', serif;
+}
+
+
+#write>h3.md-focus:before{
+	left: -1.5rem;
+	color:#999;
+	border-color:#999;
+}
+#write>h4.md-focus:before{
+	left: -1.5rem;
+	top: .25rem;
+	color:#999;
+	border-color:#999;
+}
+#write>h5.md-focus:before{
+	left: -1.5rem;
+	top: .0.3125rem;
+	color:#999;
+	border-color:#999;
+}
+#write>h6.md-focus:before{
+	left: -1.5rem;
+	top: 0.3125rem;
+	color:#999;
+	border-color:#999;
+}
+
+.md-toc:focus .md-toc-content{
+	margin-top: 19px;
+}
+
+.md-toc-content:empty:before{
+	color: #065588;
+}
+.md-toc-item {
+	color: #065588;
+}
+#write div.md-toc-tooltip {
+	background-color: #f3f2ee;
+}
+
+#typora-sidebar {
+	background-color: #f3f2ee;
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.375);
+  	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.375);
+}
+
+.pin-outline #typora-sidebar {
+	background: inherit;
+	box-shadow: none;
+	border-right: 1px dashed;
+}
+
+.pin-outline #typora-sidebar:hover .outline-title-wrapper {
+	border-left:1px dashed;
+}
+
+.outline-item:hover {
+  background-color: #dadada;
+  border-left: 28px solid #dadada;
+  border-right: 18px solid #dadada;
+}
+
+.typora-node .outline-item:hover {
+  	border-right: 28px solid #dadada;
+}
+
+.outline-expander:before {
+  content: "\f0da";
+  font-family: FontAwesome;
+  font-size:14px;
+  top: 1px;
+}
+
+.outline-expander:hover:before,
+.outline-item-open>.outline-item>.outline-expander:before {
+  content: "\f0d7";
+}
+
+.modal-content {
+	background-color: #f3f2ee;
+}
+
+.auto-suggest-container ul li {
+	list-style-type: none;
+}
+
+/** UI for electron */
+
+.megamenu-menu,
+#top-titlebar, #top-titlebar *,
+.megamenu-content {
+	background: #f3f2ee;
+	color: #1f0909;
+}
+
+.megamenu-menu-header {
+	border-bottom: 1px dashed #202B33;
+}
+
+.megamenu-menu {
+	box-shadow: none;
+	border-right: 1px dashed;
+}
+
+header, .context-menu, .megamenu-content, footer {
+	font-family: "PT Serif", 'Times New Roman', Times, serif;
+    color: #1f0909;
+}
+
+#megamenu-back-btn {
+	color: #1f0909;
+	border-color: #1f0909;
+}
+
+.megamenu-menu-header #megamenu-menu-header-title:before {
+	color: #1f0909;
+}
+
+.megamenu-menu-list li a:hover, .megamenu-menu-list li a.active {
+	color: inherit;
+	background-color: #e8e7df;
+}
+
+.long-btn:hover {
+	background-color: #e8e7df;
+}
+
+#recent-file-panel tbody tr:nth-child(2n-1) {
+    background-color: transparent !important;
+}
+
+.megamenu-menu-panel tbody tr:hover td:nth-child(2) {
+    color: inherit;
+}
+
+.megamenu-menu-panel .btn {
+	background-color: #D2D1D1;
+}
+
+.btn-default {
+	background-color: transparent;
+}
+
+.typora-sourceview-on #toggle-sourceview-btn,
+.ty-show-word-count #footer-word-count {
+	background: #c7c5c5;
+}
+
+#typora-quick-open {
+    background-color: inherit;
+}
+
+.md-diagram-panel {
+	margin-top: 8px;
+}
+
+.file-list-item-file-name {
+	font-weight: initial;
+}
+
+.file-list-item-summary {
+	opacity: 1;
+}
+
+.file-list-item {
+	color: #777;
+}
+
+.file-list-item.active {
+	background-color: inherit;
+	color: black;
+}
+
+.ty-side-sort-btn.active {
+	background-color: inherit;
+}
+
+.file-list-item.active .file-list-item-file-name  {
+	font-weight: bold;
+}
+
+.file-list-item{
+    opacity:1 !important;
+}
+
+.file-library-node.active>.file-node-background{
+	background-color: rgba(32, 43, 51, 0.63);
+	background-color: var(--active-file-bg-color);
+}
+
+.file-tree-node.active>.file-node-content{
+	color: white;
+	color: var(--active-file-text-color);
+}
+
+.md-task-list-item>input {
+	margin-left: -1.7em;
+	margin-top: calc(1rem - 12px);
+}
+
+input {
+	border: 1px solid #aaa;
+}
+
+.megamenu-menu-header #megamenu-menu-header-title,
+.megamenu-menu-header:hover, 
+.megamenu-menu-header:focus {
+	color: inherit;
+}
+
+.dropdown-menu .divider {
+	border-color: #e5e5e5;
+	opacity: 1;
+}
+
+/* https://github.com/typora/typora-issues/issues/2046 */
+.os-windows-7 strong,
+.os-windows-7 strong  {
+	font-weight: 760;
+}
+
+.ty-preferences .btn-default {
+	background: transparent;
+}
+
+.ty-preferences .window-header {
+	border-bottom: 1px dashed #202B33;
+	box-shadow: none;
+}
+
+#sidebar-loading-template, #sidebar-loading-template.file-list-item {
+	color: #777;
+}
+
+.searchpanel-search-option-btn.active {
+	background: #777;
+	color: white;
+}
+
+
+</style><title>guang</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='光'><span>光</span></h1><p><span>“自从奇点爆炸后，世界就有了光。”</span></p><h2 id='一'><span>一</span></h2><p><span>“喂，你又在想些什么啊！”——一阵未知来源信号传入了我的“场”，或许是同学？广播回复一下吧。</span></p><p><span>“没事，只是思考一些关于世界起源的事情，今天早上的那个人类起源考据的课题让我觉得受益匪浅呢。”我将信息编码，广播出去。</span></p><p><span>说起来，用这个“场”传输信号用的其实还挺好用的，今天我刚好二十四岁，终于能用“场”了，我用声带发声了整整二十四年，我相信一万年以前的人绝对不会想到这个东西有多爽，光速可比声速快很多了，我们的神经系统能够更快的反应出来要表达出来，不过他们好像因为神经系统的效率低下，一生都只能通过发声传递自己的思想。据史料记载，那时还有一门叫做“语文”的课程来叫人们如何来清晰表达自己的观点。</span></p><p><span>诶，好像史料只是史料，应该不大可能是真的。史料还说四千多年前有一种叫做“老虎”的哺乳动物，昨天的“广播场”刚辟谣完呢。要是能找到一些可靠的史料那有多好啊。</span></p><h2 id='二'><span>二</span></h2><p><span>“同学们上午好，下面我们来学习今天的课程，今天的这节‘起源考据课’的主题是关于我们祖先的，希望大家认真学习</span></p><p><span>现在我们使用的“场”实际上是五千年以前，一位叫做秋寒的科学家研发的，虽然到现在我们都不能非常清楚地了解他的思想，或者说他是如何发现使用“原石”来让光能够稳定传输信号的，但是这并不影响我们使用它。</span></p><p><span>秋寒，他被称为“光之父”，即使他之前有千千万的科研工作者已经发现了许许多多光的性质，也做出了很多贡献，但是我们还是这么称呼他。他是一个鬼才，是他首次发现使光在生活环境下传输信息的方式，也是第一次将光用于稳定的、灵活的信息传输领域。”</span></p><p><span>“不对，导师！根据史料记载，早在一万年以前，我们的祖先就已经学会使用光来传输信息了，光纤就是最好的证明！那时候他们就已经可以以倍低速来传输数据。并依靠调制解调器来完成数据转译！您看看，这个是关于‘光纤’的记载”我突然发现不对，在寻找史料以后，将编有编号0010的“场信息”广播出来，向老师反驳。</span></p><p><span>“0010，请你认真接收“场”的信息，咱们先暂且不要说你这个史料的可靠性，就算能够传输数据，那也不是灵活的。”老师听着，记录下了他的编号。“不过你的想法有一定道理，接下来我们要将的事情就跟这个有关系，这种善于思考的精神值得我们学习。”</span></p><p><span>“现在接着传输正题，刚才那位同学也说了，以前可能有这种叫做‘光纤’的线缆可以进行信息传输。但是我们都能知道，如果使用线缆，那么就不能做到灵活地传输，如果不使用线缆，那么就不能做到稳定的传输。这里给大家讲一个考试可能会考的例子：在秋寒之前，曾经有科学家试过用高能激光束来接收和发送信息，首次摆脱了线缆，结果因为高功耗和不稳定而失败，在最后的一次实验中，为了提高稳定性，冒险使用高能激光束，在后续的调查中······呃，这不重要，大家快点刻录笔记：这体现了这位科学家的责任感与使命感以及为全人类着想的高尚品质。”</span></p><p><span>真的是，为什么现在每一节课都要强调考点啊，每一次我们都沉浸在科学世界里面无法自拔，在知识的海洋当中自由享受时，都会被这玩意打断······</span></p><p><span>要是能找到一份可靠的史料该多好啊。</span></p><h2 id='三'><span>三</span></h2><p><span>没错，我就是好奇在“后续的调查”里面发现了什么，在经过一系列的厚脸皮问询无果以后，最后还是没打听到。</span></p><p><span>所以我在仔细思量以后，决定还是自己好好思索吧。连导师都不肯告诉的事情，那肯定不是什么特别有意思的事情。</span></p><p><span>高能激光束、信息传输······</span></p><p><span>“0010，在吗，0010，在吗？”未知信息来源有“场信号”广播，来找我的？</span></p><p><span>“在的，在的，0010在线，请报编号，转私人频道0010-1。”</span></p><p><span>“1101，你从哪里找到我的？”</span></p><p><span>“偷听呀，你是那个向老师死乞白赖问‘后续的调查’故事的那个人吧。”</span></p><p><span>“是的，你为什么要找我”</span></p><p><span>“我也想知道那个故事？”</span></p><p><span>“为什么？”</span></p><p><span>“他是我的父亲。”</span></p><p><span>“等等等等，你在胡说什么，想知道也没必要撒这种谎吧，那个科学家几千年以前的啊。”</span></p><p><span>“我有告诉你，我是什么时候的人了吗？如果想寻找那几千年人类科研历程史料，可以来找我。”</span></p><p><span>“······”</span></p><h2 id='四'><span>四</span></h2><p><span>“我是一名旅行者，准确一点，是时空旅行者。另外，我不希望你真的每一次都管我叫‘1101’，我叫竹木。”</span></p><p><span>“那好咯，我叫胡桃，你先说说你为啥要跑到这里，不对不对，你怎么到这里的，也不对，你是什么时候到这里来的。”</span></p><p><span>“哈哈，看来你对这个事情很陌生嘛，不过可以理解。”</span></p><p><span>“诶诶，你赶紧解释一下啊，要不然你现在出现的时机会让我以为你是骗子啊，没有原因、没有目的就这么来了？有点太过突兀了吧。而且为什么非得来找我啊，我有什么特别的地方吗？”</span></p><p><span>“哎呀，哪里有这么多麻烦的东西，我就是通过‘第二光场’跑来找我父亲下落的人而已。找你，只是因为我觉得你和我是一类人。”</span></p><p><span>“别逗我了啊，越说我越迷糊，什么第二光场啊，你科幻小说看多了吧，我可不相信有人会拿一台没什么用的微型计算机来穿越时空，你安安心心回你那个时空的家不就好了吗？而且霍金都说过，所有物体只能穿越到未来，那这样你岂不是就回不到过去了？”</span></p><p><span>“我已经没有家了，那时候的我已经没有家了。更何况，我穿越的方式不受那一条规则限制。”</span></p><p><span>“因为什么？”</span></p><p><span>“是因为我父亲惹下的祸。”</span></p><p><span>虽然我不想提这一件事情，但是好像也逃不过的。</span></p><p><span>我们那个时候距离今天四千五百年以前。你一听这个时间点，肯定会非常迷惑，但是我必须要向你讲述这段历史，因为我需要你的帮助。”</span></p><h2 id='五'><span>五</span></h2><p><span>“我们生活的那个时候，是目前人类历史上最黑暗的时刻了。</span></p><p><span>那是秋寒将光研究透彻并将其转换为“能源”的五百年以后，有一个人出现了，这就是你们老师对你们讲的那个科学家，我的父亲——竹青。实际上，我的父亲根本不是在秋寒实验之前，而是他实验之后。我的父亲是一个有着对光的信仰和对知识的渴望、对真理的执着的人。他是一个实验派科学家，他很少会参与理论研究，因为这样，很多次陷入生命危险当中，有人批评他是一个不合格的科学家，但是我从来不这么觉得，他是知道后果的。</span></p><p><span>他的那一次实验是非常有开创性的，但是，因为这次实验，他彻彻底底改变了人类的历史。</span></p><p><span>他有一天，发现几十个世纪前的中国有一种叫做“5G”的技术，使用了“波束赋形”，是一种使用传感器阵列定向发送和接收信号的信息处理技术，可以通过调整相位阵列的基本单元的参数，使得某些角度的信号获得相长干涉，而另一些角度的信号获得相消干涉。通俗一点，就是通过用不同强度的信号使信号束“转向”的技术，当时他发现这是一种非常机智的技术，应当在早些年会有非常大的作用，但是非常显然，现在已经不需要这种东西了，他并不打算仅仅用于信号传输，而是要用于高能能量束的传输。”</span></p><p><span>“所以，他是在秋寒之后开始研究的？而且，他要用这个‘波束赋形’的技术来控制高能激光束的方向？那是为了什么？高能、转向、激光束······等等，是那种武器吗？”</span></p><p><span>“没错，就是你想的那个。他曾经天真地认为可以通过这样的方式，在短距离制造可精准定位高能激光束，在最后他提出的技术能够使所有波束按照指定的方向矢量‘抖动’，在精准的计算下可以做到打击方圆八百米之内的所有目标。虽然他跟我反复说‘不是为了制造战争机器，只是为了帮助我国巩固国防，在这个混乱的时代，维护一方和平’。结果······”</span></p><p><span>“别卖关子了，快点说结果啊！”</span></p><p><span>“想法是好的，但是不幸的事情是，他的技术被滥用了。因为他在相关的论文中，提出了‘抖动公式’，大量的小国家在他的技术论文发表后，利用这个技术，制造了大量的军事装备，其中最可怕的是一种叫做“蘑菇”的武器。这种武器运用其配置的相控阵可以在五百米之内精准攻击所有目标，不对，准确一些，是穿透攻击。在非洲和中东地区引起了大规模战争，到最后以美国为首的国家联合与那时候的中国对抗，我国人民在世界舞台上面第二次被如此明显地针对，在这960万平方公里的空间内上开始了自卫反击。</span></p><p><span>整日都是大量的激光束扫射，无数的小孩和青年因为无法躲避激光束而被活活穿死，无数的战士为了保护人民而献出了自己宝贵的生命。最后事态严重的时候，我的父亲莫名消失了。我也是在那个时候，失去了我的家。从此以后，我就踏上了时空旅行的征程。”</span></p><p><span>“等等，他怎么消失的？”</span></p><p><span>“走了不该走的路。”</span></p><p><span>“不是，你说话怎么没头没脑的啊，别当谜语人好吗！这玩意又是什么意思？”</span></p><p><span>“具体的原因我也不知道，但是根据推测他通过逆向发送抖动公式，使激光束的振动形态改变，试图以此制造激光盾来抵抗激光束，结果意外在时间上硬生生割开了一个口子。在千万个可能里面，这个实际上是最可怕的事情了，因为他可能制造了一个无法预测这个裂缝通往哪里的隧道。虽然并没有明显的证据，但是我们都认为可能是如此。”</span></p><p><span>“就是一条完全随机的时空裂缝？那，那岂不是可能到任何时间的任何一个地方啊，万一碰到个什么战火连天的地方岂不是就死透了？”</span></p><p><span>“没错，你也知道了，我的每一次穿越都是冒着生命危险的，就像一束光，虽然每一束光的方向是固定的，但是你很难通过有效的方法确定光的具体路径。不过幸好，这个时空裂缝并不会向你开始说的只能向未来传送，是双向的，也就是说，只要传送的次数足够多，有机会传送到我父亲之前，改变我父亲的想法，拯救人民、亦或是戳穿美国为首的人所策划的恶心的战争、卑劣的伎俩。”</span></p><p><span>“每一次，都是生死未卜的穿越？！”</span></p><p><span>“大概是，不过好的一点，每次都幸运地生存下来了。而且实际上，我在那个战火连天的时代，已经没有家了，呆在那里也没什么意思。更何况，我要弥补我的疏忽，早知道如此，我就不该放任我那个疯子父亲。”</span></p><p><span>“所以，你在前面花那么大的力气向我介绍那些事情，都是为了我和你一起和你找爹？”</span></p><p><span>“是，也不是，我们两个素昧平生，好像你并没有义务和我一起冒这个险。但是如果找到他的话，有可能会了解许多远古时期的人类科研历史，所以，你希望变成一束光吗？”</span></p><p><span>“也许可以。”——我彻底被感动了，我想我没有任何理由拒绝这样一个人了。</span></p><p><span>最伟大的人不只是敢于冒险，而是即使知道一定会尸骨无存，却义无反顾地站在前线。</span></p><p><span>最伟大的人，也可能是一束光，即使在世上无法停留很久，却依旧用尽一生铺开光明。</span></p><h2 id='六'><span>六</span></h2><p><span>竹木拿出了一个小小的黑色盒子，上面有一个有密密麻麻的小激光器的面板，用三根简陋的导线连接在了一起。</span></p><p><span>在按下红色按钮的一瞬间，我的面前发出了一阵强光，然后突然从一个在地上小光点变成一个大大的洞。</span></p><p><span>“胡桃，咱们走吧，我刚来你们这里两天，感觉你们的场可好用了，可惜那么好用的场在别处不一定能用了。希望不是我最后一次用。”</span></p><p><span>“我也是。”</span></p><p><span>我们跳入了这个圆洞。</span></p><p><span>随着眼睛一眨，我们来到了早上研究课题的那一间教室。</span></p><h2 id='七'><span>七</span></h2><p><span>“你们来了啊，挺好的”导师说道。</span></p><p><span>我们转头看了看四周，我的同学们不见了，只有一件空空的教室。</span></p><p><span>“早就猜到你们会来了，我可是好不容易传送过来的”导师摇了摇头。</span></p><p><span>“等等，你是秋寒？？？”竹木喊道！</span></p><p><span>我却一头雾水——教科书上面秋寒可不是长这个样子的。</span></p><p><span>“哈哈哈，孩子，没错，穿来穿去这么久，也该休息休息了，你和你父亲可真像，来说说你穿这么久找到你爹了吗？”</span></p><p><span>“不对啊，你可是比他爹早好几千年呢啊，你怎么可能到现在，怎么可能认识他和他爹？”我彻底蒙了。</span></p><p><span>“你也是时空旅行者吧。”竹木问道。</span></p><p><span>“当然，在我开始大量研究光的时候，就已经想到用一个反向抖动公式来实现时空传送了。”秋寒点了点头。“你是打算找你爹问清楚当年发生了什么事情的，对吧？”</span></p><p><span>“实际上，他根本就没有离开他那个时空，是我通过时空裂缝传到他那里去的，我第一次传送到他那里，告诉了他时空传送的方式，但是他一直没有使用。”</span></p><p><span>“也就是说，他是一直在研究那个激光盾咯？但是你这样高人过去，为什么不替他解决当时中国所受的问题呢？”</span></p><p><span>“你的父亲当时跟我说我们中国人，不需要低声下气求人帮忙！也不需要！从潜水艇、核弹、空间站、生物技术再到信息科技，我们中国都是坚持自己完成的。无论因为何种原因，我们都会尽己所能完成，而并非耍赖！即使被针对了，也依然能够完美挺过去。你的父亲，早在当年就联合国家几大科研元老，将大型激光盾完善了，要不然如何能够反击外国的那些恶心的进攻？你难不成穿来穿去那么久，连这个未来的消息都没发现吧。”</span></p><p><span>“额，的确是，但是没有一项靠谱的玩意。等等！好像那会连你都说我父亲在你之前研究的，都这么骗人，怎么得到真的消息啊”</span></p><p><span>“呃呃呃，好像不重要，在这个时代，研究过去需要自己来见证了，这台波束赋形机给你了，以后你还想玩，可以随便跑，只要不影响重大历史进程都不会有任何的问题。”</span></p><p><span>“秋寒！你个老头，你怎么不早点说出来。”我很生气。</span></p><p><span>“别生气了，看看老虎去吧。”</span></p><h2 id='八'><span>八</span></h2><p><span>我被玩弄了，不久之后竹木就与我告别，归去了。</span></p><p><span>等等，既然知道为什么不早点说？</span></p><p><span>等等，该不会竹木说的才是真的吧！</span></p><p><span>等等，像他父亲是怎么回事，该不会······</span></p><p><span>“孩子，别想了，通过光来读取一个人神经元交互的生物信号还是挺容易的，我来回答你吧，因为热爱祖国的人永远都会热爱祖国，想要拯救世界的人，你是无法改变的。更何况那场战争根本不是因为什么所谓的‘蘑菇’。”秋寒说道。</span></p><p><span>也就是说，竹木的父亲还在一个不知道的时空，妄图和竹木一样改变当时历史？你把他骗走了？</span></p><p><span>“是的，但也不是。总要有人变成光，不然可就没有现在的你我了。”</span></p><h2 id='九'><span>九</span></h2><p><span>“自从竹木踏上了旅途，世界上就少了一束光。”</span></p></div></div>
+</body>
+</html>
